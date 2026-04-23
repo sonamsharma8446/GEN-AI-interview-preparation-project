@@ -107,17 +107,26 @@ ng serve
 
 ## 📸 Screenshots
 
-### 🏠 Home Page
+### 🔐 Login Page
+![Login](assets/login.png)
 
+### 📝 Register Page
+![Register](assets/register.png)
+
+### 🏠 Home Page
 ![Home](assets/home.png)
 
-### 📊 Generated Report
+### ⚙️ Generating Report (Loading State)
+![Generating](assets/report generating.png)
 
+### 📊 Generated Report
 ![Report](assets/report.png)
 
-### 📄 Resume PDF
+### 📥 Downloading Resume
+![Generating](assets/downloading resume.png)
 
-![PDF](assets/pdf.png)
+### 
+![Download](assets/resume.png)
 
 ---
 
