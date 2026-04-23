@@ -1,109 +1,149 @@
 # GEN-AI-interview-preparation-project
-# 🚀 AI Resume Matcher
+# 🚀 GEN AI Interview Preparation Platform
 
-An AI-powered web application that analyzes resumes against job descriptions and generates interview questions, skill gaps, and a preparation plan.
+An AI-powered full-stack web application that helps users prepare for interviews by analyzing resumes and generating structured interview insights.
 
 ---
 
-## 📌 Features
+## ✨ Features
 
-* Upload resume (PDF)
-* Match score based on job description
-* Technical & behavioral interview questions
-* Skill gap analysis
-* Personalized preparation plan
-* Download AI-generated resume PDF
+* 📄 Upload Resume (PDF supported)
+* 🎯 AI-based Match Score with Job Description
+* 💡 15–20 Technical Interview Questions (with answers)
+* 🧠 10–15 Behavioral Questions
+* 📊 Skill Gap Analysis (low / medium / high)
+* 📅 Personalized Preparation Plan (day-wise)
+* 📥 Download Professional Resume PDF
+* 🔐 Authentication (Login/Register with JWT)
+* 🗂️ View previous reports
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** Angular, HTML, CSS
-* **Backend:** Node.js, Express.js
-* **Database:** MongoDB
-* **AI Integration:** OpenRouter API
-* **Other Tools:** Puppeteer (PDF generation)
+### Frontend
+
+* Angular
+* HTML, CSS, TypeScript
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB (Mongoose)
+
+### AI & Tools
+
+* OpenRouter API
+* Puppeteer (PDF generation)
+* pdf-parse (Resume parsing)
 
 ---
 
-## 📷 Screenshots
+## ⚙️ Installation
 
-(Add screenshots of your UI here)
+### Clone repo
+
+```bash
+git clone https://github.com/sonamsharma8446/GEN-AI-interview-preparation-project.git
+```
 
 ---
 
-## ⚙️ Installation & Setup
+### Backend setup
 
-1. Clone the repository
-
-```
-git clone https://github.com/your-username/your-repo-name.git
-```
-
-2. Install dependencies
-
-```
+```bash
+cd backend
 npm install
 ```
 
-3. Add environment variables
+Create `.env` file:
 
-```
+```bash
 OPENROUTER_API_KEY=your_api_key
 JWT_SECRET=your_secret
 ```
 
-4. Run the server
+Run server:
 
-```
+```bash
 npm start
 ```
 
-5. Run frontend (Angular)
+---
 
-```
+### Frontend setup
+
+```bash
+cd frontend
+npm install
 ng serve
 ```
 
 ---
 
-## 🚀 Usage
+## 🚀 How It Works
 
-* Enter job description and self description
-* Upload your resume (PDF)
-* Click **Generate Report**
-* View interview questions and insights
+1. Enter job description
+2. Enter self description
+3. Upload resume (PDF)
+4. Click **Generate Report**
+
+👉 AI generates:
+
+* Match score
+* Questions
+* Skill gaps
+* Preparation plan
+
+👉 You can:
+
+* View reports
 * Download resume PDF
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+![Home](assets/home.png)
+
+### 📊 Generated Report
+
+![Report](assets/report.png)
+
+### 📄 Resume PDF
+
+![PDF](assets/pdf.png)
 
 ---
 
 ## 📂 Project Structure
 
 ```
-/frontend
-/backend
-  /controllers
-  /models
-  /services
+frontend/
+backend/
+  controllers/
+  models/
+  services/
 ```
 
 ---
 
 ## 🎯 Future Improvements
 
-* Add authentication UI improvements
-* Improve AI accuracy
-* Add multiple resume templates
-* Deploy on cloud (AWS / Vercel)
+* 🌐 Deployment (Vercel / AWS)
+* 📑 Multiple resume templates
+* ⚡ Faster PDF generation
+* 📊 Dashboard analytics
 
 ---
 
-## 🤝 Contributing
+## 👨‍💻 Author
 
-Pull requests are welcome. For major changes, open an issue first.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+Sonam Sharma
+GitHub: https://github.com/sonamsharma8446
