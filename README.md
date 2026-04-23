@@ -1,4 +1,3 @@
-# GEN-AI-interview-preparation-project
 # 🚀 GEN AI Interview Preparation Platform
 
 An AI-powered full-stack web application that helps users prepare for interviews by analyzing resumes and generating structured interview insights.
