@@ -1,0 +1,89 @@
+const { GoogleGenAI } = require('@google/genai');
+const { z, any } = require("zod");
+const { zodToJsonSchema } = require("zod-to-json-schema")
+
+const ai = new GoogleGenAI({
+  apiKey: process.env.GOOGLE_GEMINI_API_KEY
+})
+
+const interviewReportZodSchema = z.object({
+  matchScore: z.number().min(0).max(100).default(0),
+
+  technicalQuestions: z.array(z.object({
+    question: z.string(),
+    intention: z.string(),
+    answer: z.string()
+  })),
+
+   behaviouralQuestions: z.array(z.object({
+    question: z.string(),
+    intention: z.string(),
+    answer: z.string()
+  })),
+
+  skillGaps: z.array(z.object({
+    skill: z.string(),
+    severity: z.enum(["low", "medium", "high"])
+  })),
+
+  preparationPlan: z.array(z.object({
+    day: z.number(),
+    focus: z.string()
+  }))
+});
+
+async function generateInterviewReport({ resume, selfDescription, jobDescription }) {
+
+
+  const prompt = `
+Generate an interview report based on:
+
+Job Description:
+${jobDescription}
+
+Resume:
+${resume}
+
+Self Description:
+${selfDescription}
+
+Rules:
+- Be realistic and structured
+- Avoid duplicate content
+- Keep preparation plan within 6 days
+`;
+
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: prompt,
+    config: {
+      responseMimeType: "application/json",
+      responseSchema:zodToJsonSchema(interviewReportZodSchema),
+      temperature: 0.2
+    }
+  });
+
+let parsed;
+
+try {
+  parsed = JSON.parse(response.text);
+} catch (e) {
+  console.error("Failed to parse AI response as JSON:", e);
+  throw new Error("AI response is not valid JSON");
+
+  parsed = {
+  matchScore: parsed.matchScore ?? 0,
+  technicalQuestions: Array.isArray(parsed.technicalQuestions) ? parsed.technicalQuestions : [],
+  behaviouralQuestions: Array.isArray(parsed.behaviouralQuestions) ? parsed.behaviouralQuestions : [],
+  skillGaps: Array.isArray(parsed.skillGaps) ? parsed.skillGaps : [],
+  preparationPlan: Array.isArray(parsed.preparationPlan) ? parsed.preparationPlan : [],
+};
+}
+const validated = interviewReportZodSchema.parse(parsed);
+
+  console.log(JSON.stringify(validated));
+
+  return validated;
+}
+
+module.exports = generateInterviewReport
