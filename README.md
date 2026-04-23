@@ -117,15 +117,15 @@ ng serve
 ![Home](assets/home.png)
 
 ### ⚙️ Generating Report (Loading State)
-![Generating](assets/report generating.png)
+![Generating](assets/report-generating.png)
 
 ### 📊 Generated Report
 ![Report](assets/report.png)
 
 ### 📥 Downloading Resume
-![Generating](assets/downloading resume.png)
+![Generating](assets/downloading-resume.png)
 
-### 
+### Resume Pdf
 ![Download](assets/resume.png)
 
 ---
